@@ -16,7 +16,7 @@ import '../../../utils/utils.dart';
 class HeaderLogo extends StatelessWidget {
   const HeaderLogo({Key? key}) : super(key: key);
 
-  // ProviderListenable? get themeProvider => ;
+  // ProviderListenable? get themeProvider => null;
 
   @override
   Widget build(BuildContext context) {
