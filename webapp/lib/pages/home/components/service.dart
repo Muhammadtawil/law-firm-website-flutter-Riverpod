@@ -109,7 +109,7 @@ class ServiceSection extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "What I Do?",
+            "What We Do?",
             style: GoogleFonts.josefinSans(
               fontWeight: FontWeight.w900,
               height: 1.3,
