@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../models/project.dart';
 import '../../../provider/theme.dart';
 import '../../../utils/constants.dart';
@@ -39,6 +38,7 @@ class ProjectSection extends StatelessWidget {
       ),
     );
   }
+  // aaaaa
 
   Center _buildProject(double width, ProjectModel projectModel) {
     return Center(
