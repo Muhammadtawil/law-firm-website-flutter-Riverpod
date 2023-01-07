@@ -40,6 +40,28 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <html>
+  ...
+  <body>
+    <!-- Add this line to connect to firebase-->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyD9LDmp4HJKkTF3ZXye_g46h9VbeowwDQA",
+        authDomain: "clickers-c221f.firebaseapp.com",
+        // databaseURL: "https://[YOUR_PROJECT].firebaseio.com",
+        projectId: "clickers-c221f",
+        storageBucket: "clickers-c221f.appspot.com",
+        messagingSenderId: "180721429002",
+        appId: "1:180721429002:web:a5939483bed94ac5be4df3",
+        measurementId: "G-KPGCKGKQ3R",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
