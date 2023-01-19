@@ -11,9 +11,18 @@ void configureApp() {
   setUrlStrategy(PathUrlStrategy());
 }
 
-void main() async {
-  await Firebase.initializeApp();
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyD9LDmp4HJKkTF3ZXye_g46h9VbeowwDQA",
+          authDomain: "clickers-c221f.firebaseapp.com",
+          projectId: "clickers-c221f",
+          storageBucket: "clickers-c221f.appspot.com",
+          messagingSenderId: "180721429002",
+          appId: "1:180721429002:web:a5939483bed94ac5be4df3",
+          measurementId: "G-KPGCKGKQ3R"));
+
   configureApp();
   runApp(const ProviderScope(child: MyApp()));
 }

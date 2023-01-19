@@ -1,9 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
-
 import '../../../models/design_process.dart';
 import '../../../models/name_color.dart';
 import '../../../provider/theme.dart';
@@ -29,7 +29,7 @@ final List<DesignProcess> designProcesses = [
   ),
 ];
 
-class ServiceSection extends StatelessWidget {
+class ServiceSection extends ConsumerWidget {
   ServiceSection({Key? key}) : super(key: key);
   final whatIDo = [
     NameIconColor(
@@ -55,7 +55,9 @@ class ServiceSection extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // final databaseProvider = Provider((ref) => Database());
+    //  final database = ref.read(databaseProvider);  // Simply reading the Database
     return SizedBox(
       width: double.infinity,
       child: ScreenHelper(
@@ -74,37 +76,37 @@ class ServiceSection extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Productive ,\n   Experienced",
-                style: GoogleFonts.josefinSans(
-                  fontWeight: FontWeight.w900,
-                  height: 1.8,
-                  letterSpacing: 2,
-                  fontSize: 18.0,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Utilty.openUrl(
-                      "https://github.com/AgnelSelvan/AgnelSelvan.github.io/raw/main/assets/files/Agnel-Selvan.pdf");
-                },
-                child: MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: Text(
-                    "DOWNLOAD CV",
-                    style: GoogleFonts.josefinSans(
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Text(
+          //       "Productive ,\n   Experienced",
+          //       style: GoogleFonts.josefinSans(
+          //         fontWeight: FontWeight.w900,
+          //         height: 1.8,
+          //         letterSpacing: 2,
+          //         fontSize: 18.0,
+          //       ),
+          //     ),
+          //     GestureDetector(
+          //       onTap: () {
+          //         Utilty.openUrl(
+          //             "https://github.com/AgnelSelvan/AgnelSelvan.github.io/raw/main/assets/files/Agnel-Selvan.pdf");
+          //       },
+          //       child: MouseRegion(
+          //         cursor: SystemMouseCursors.click,
+          //         child: Text(
+          //           "DOWNLOAD CV",
+          //           style: GoogleFonts.josefinSans(
+          //             color: kPrimaryColor,
+          //             fontWeight: FontWeight.w900,
+          //             fontSize: 16.0,
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
           const SizedBox(
             height: 20,
           ),
@@ -205,6 +207,7 @@ class ServiceSection extends StatelessWidget {
                     childAspectRatio: 5,
                   ),
                   itemBuilder: (BuildContext context, int index) {
+                    // DocumentSnapshot links = snapshot.data!.docs[index];
                     return Container(
                       alignment: Alignment.center,
                       child: Column(
