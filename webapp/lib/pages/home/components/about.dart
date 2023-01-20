@@ -6,8 +6,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../../../models/about.dart';
-import '../../../models/technology.dart';
-import '../../../provider/theme.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/screen_helper.dart';
 

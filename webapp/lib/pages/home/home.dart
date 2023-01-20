@@ -2,8 +2,6 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:webapp/pages/home/components/about_test.dart';
-
 import '../../models/project.dart';
 import '../../provider/home.dart';
 import '../../provider/theme.dart';
@@ -197,6 +195,13 @@ class _HomeState extends ConsumerState<Home>
           ),
         ),
         body: _buildPage(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(
+            Icons.schedule,
+            size: 20,
+          ),
+        ),
       ),
     );
   }

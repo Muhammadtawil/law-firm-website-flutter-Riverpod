@@ -17,14 +17,14 @@ class DemoScreen extends ConsumerStatefulWidget {
 }
 
 class _DemoScreenState extends ConsumerState<DemoScreen> {
-  late HomeProvider _homeProvider;
+  late HomeProvider homeProvider;
   final ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
 
-    _homeProvider = ref.read(homeProvider);
+    homeProvider = ref.read(homeProvider as ProviderListenable<HomeProvider>);
   }
 
   Widget _buildPage() {
