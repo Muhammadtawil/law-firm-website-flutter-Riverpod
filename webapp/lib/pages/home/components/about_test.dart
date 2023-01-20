@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:webapp/models/about_test.dart';
-
 import '../../../models/technology.dart';
 import '../../../provider/theme.dart';
 import '../../../utils/constants.dart';
@@ -66,7 +65,7 @@ class AboutSectionTest extends ConsumerWidget {
                               height: 25.0,
                             ),
                             Text(
-                              "I'm Agnel Selvan, A Flutter and iOS Developer and Technical Blog Writer",
+                              "I'Muhammad Tawil, A Flutter and iOS Developer and Technical Blog Writer",
                               style: GoogleFonts.josefinSans(
                                 fontWeight: FontWeight.bold,
                                 height: 1.3,
