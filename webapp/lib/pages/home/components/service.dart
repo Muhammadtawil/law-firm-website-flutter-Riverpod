@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:webapp/widgets/service_item.dart';
 import '../../../models/design_process.dart';
 import '../../../models/name_color.dart';
 import '../../../provider/theme.dart';
@@ -51,7 +52,7 @@ class ServiceSection extends ConsumerWidget {
       color: Colors.orange[400]!,
     ),
   ];
-
+  final data = FirebaseFirestore.instance.collection("services");
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final databaseProvider = Provider((ref) => Database());
@@ -129,6 +130,21 @@ class ServiceSection extends ConsumerWidget {
           SizedBox(
             height: ScreenHelper.isDesktop(context) ? 140 : 70,
           ),
+          // ListView.builder(
+          //     scrollDirection: Axis.horizontal,
+          //     itemCount: snapshot.data!.docs.length,
+          //     itemBuilder: (context, index) {
+          //       DocumentSnapshot services =
+          //           snapshot.data!.docs[index];
+
+          //       return ServiceItem(
+          //         id: services.id,
+          //         title: services['title'],
+          //         description: services['description'],
+          //         imageurl: services['imageurl'],
+          //         isAvailable: services['isAvailable'],
+          //       );
+          //     }),
           Consumer(builder: (context, ref, _) {
             return Wrap(
                 alignment: WrapAlignment.center,
@@ -186,59 +202,68 @@ class ServiceSection extends ConsumerWidget {
           const SizedBox(
             height: 80.0,
           ),
-          Container(
-            alignment: Alignment.center,
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                return ResponsiveGridView.builder(
-                  padding: const EdgeInsets.all(0.0),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: ResponsiveGridDelegate(
-                    mainAxisSpacing: 20.0,
-                    crossAxisSpacing: 20.0,
-                    maxCrossAxisExtent: ScreenHelper.isMobile(context)
-                        ? constraints.maxWidth / 1.0
-                        : ScreenHelper.isTablet(context)
-                            ? constraints.maxWidth / 2.0
-                            : 450.0,
-                    childAspectRatio: 5,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    // DocumentSnapshot links = snapshot.data!.docs[index];
-                    return Container(
-                      alignment: Alignment.center,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                designProcesses[index].imagePath,
-                                width: 40.0,
-                              ),
-                              const SizedBox(
-                                width: 15.0,
-                              ),
-                              Text(
-                                designProcesses[index].title,
-                                style: GoogleFonts.josefinSans(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                  itemCount: designProcesses.length,
-                );
-              },
-            ),
-          )
+          // Container(
+          //   alignment: Alignment.center,
+          //   child: LayoutBuilder(
+          //     builder: (context, constraints) {
+          //       return ResponsiveGridView.builder(
+          //         padding: const EdgeInsets.all(0.0),
+          //         shrinkWrap: true,
+          //         physics:
+          //             const NeverScrollableScrollPhysics(),
+          //         gridDelegate: ResponsiveGridDelegate(
+          //           mainAxisSpacing: 20.0,
+          //           crossAxisSpacing: 20.0,
+          //           maxCrossAxisExtent:
+          //               ScreenHelper.isMobile(context)
+          //                   ? constraints.maxWidth / 1.0
+          //                   : ScreenHelper.isTablet(context)
+          //                       ? constraints.maxWidth / 2.0
+          //                       : 450.0,
+          //           childAspectRatio: 5,
+          //         ),
+          //         itemBuilder:
+          //             (BuildContext context, int index) {
+          //           // DocumentSnapshot links = snapshot.data!.docs[index];
+          //           return Container(
+          //             alignment: Alignment.center,
+          //             child: Column(
+          //               crossAxisAlignment:
+          //                   CrossAxisAlignment.center,
+          //               children: [
+          //                 Row(
+          //                   mainAxisAlignment:
+          //                       MainAxisAlignment.center,
+          //                   children: [
+          //                     Image.asset(
+          //                       designProcesses[index]
+          //                           .imagePath,
+          //                       width: 40.0,
+          //                     ),
+          //                     const SizedBox(
+          //                       width: 15.0,
+          //                     ),
+          //                     Text(
+          //                       designProcesses[index]
+          //                           .title,
+          //                       style:
+          //                           GoogleFonts.josefinSans(
+          //                         fontSize: 20.0,
+          //                         fontWeight:
+          //                             FontWeight.w700,
+          //                       ),
+          //                     )
+          //                   ],
+          //                 ),
+          //               ],
+          //             ),
+          //           );
+          //         },
+          //         itemCount: designProcesses.length,
+          //       );
+          //     },
+          //   ),
+          // )
         ],
       ),
     );
